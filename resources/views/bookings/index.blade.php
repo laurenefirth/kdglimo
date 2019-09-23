@@ -82,51 +82,20 @@
 	</style>
 </head>
 <body>
-    <div id="app">
-		<div class="container top-bar">
-			<div class="top-left links linkDiv">
-				<a class="homeLink" href="{{ url('/') }}">{{ __('Home') }}</a>
-			</div>
-			<div class="top-right links">
-                   @auth
-                    <a href="{{ url('/home') }}">{{ __('My Account') }}</a> | 
-					<a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						@csrf
-                    </form>
-                @else
-                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                @endauth
-            </div>
-		</div>
-		<hr>
-        <div class="container">
-            <div class="nav">
-				<nav>
-					@auth
-					<p class="label">Menu</p>
-					<ul>
-						<li><a href="{{ route('login') }}">{{ __('User Management') }}</a></li>
-						<li><a href="{{ url('/home') }}">{{ __('Submit Bookings') }}</a></li>
-						<li><a href="{{ route('login') }}">{{ __('Calendar Report') }}</a></li>
-						<li><a href="{{ route('login') }}">{{ __('List Report') }}</a></li>
-					</ul>
-					@endauth
-				</nav>
-			</div>
-			
-			<div class="main">
-				<main>
-					@yield('maincontent')
-				</main>
-			</div>
-                
-        </div>
-
-    </div>
-</body>
+ 
+	<h1>All Information About Bookings</h1>
+	 
+	@foreach ($bookings as $booking)
+	<li> {{ $booking}}  </li>
+	@endforeach
+	 
+	<h1>Only First Names Of Devices</h1>
+	 
+	@foreach ($bookings as $booking)
+	 
+	<li> {{ $booking->firstName}}  </li>
+	 
+	@endforeach
+	 
+	</body>
 </html>

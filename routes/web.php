@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/','ListController@show');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/bookings','BookingsController@index');
+ 
+Route::get('/bookings/create','BookingsController@create');
+ 
+Route::post('/bookingsaction','BookingsController@storeBooking');
