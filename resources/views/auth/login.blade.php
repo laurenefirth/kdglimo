@@ -6,7 +6,7 @@
 <div class="container">
     <div class="label">{{ __('Login') }}</div>
 
-    <div class="form-body">
+    <div class="form-body maincontent">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

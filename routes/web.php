@@ -20,8 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/bookings','BookingsController@index');
+Route::get('/bookings','BookingsController@index')->middleware('auth');
  
-Route::get('/bookings/create','BookingsController@create');
+Route::get('/createbooking','BookingsController@create')->middleware('auth');
  
-Route::post('/bookingsaction','BookingsController@storeBooking');
+Route::post('/bookingsaction','BookingsController@storeBooking')->middleware('auth');

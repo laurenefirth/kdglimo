@@ -19,8 +19,7 @@ class CreateBookingsTable extends Migration
 			$table->string('lastName', 100);
 			$table->string('company', 100);
 			$table->decimal('accountNum', 7, 0);
-			$table->date('pickupDate');
-			$table->datetime('pickupTime');
+			$table->datetime('pickupDateTime');
 			$table->string('cityPickup', 100);
 			$table->char('statePickup', 2);
 			$table->integer('fare');

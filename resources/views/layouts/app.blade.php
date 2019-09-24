@@ -27,7 +27,7 @@
             margin: 0;
         }
 
-		.linkDiv > a, .linkDiv > button  {
+		.linkDiv > a, .linkDiv > button, .submitBtn {
             color: #636b6f;
             padding: 5px 25px;
             font-size: 13px;
@@ -72,12 +72,25 @@
 		}
 		
 		.form-body{
-			margin-left: 15px;
 			margin-top: 15px;
 		}
 		
 		.row.form-group{
 			margin-bottom: 10px;
+		}
+		
+		.maincontent {
+			margin-left:15px;
+		}
+		
+		.text-danger {
+			color: red;
+		}
+		.hasError {
+			border: 1px solid red;
+		}
+		.hasSuccess {
+			color: green;
 		}
 	</style>
 </head>
@@ -111,7 +124,7 @@
 					<p class="label">Menu</p>
 					<ul>
 						<li><a href="{{ route('login') }}">{{ __('User Management') }}</a></li>
-						<li><a href="{{ url('/home') }}">{{ __('Submit Bookings') }}</a></li>
+						<li><a href="{{ url('/createbooking') }}">{{ __('Submit Bookings') }}</a></li>
 						<li><a href="{{ route('login') }}">{{ __('Calendar Report') }}</a></li>
 						<li><a href="{{ route('login') }}">{{ __('List Report') }}</a></li>
 					</ul>
