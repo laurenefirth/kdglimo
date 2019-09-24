@@ -92,6 +92,28 @@
 		.hasSuccess {
 			color: green;
 		}
+		
+		section {
+		  display: table-cell;
+		  padding: 1em;
+		  width: 33%;
+		}
+
+		h1 {
+		  font-size: 1.2em;
+		}
+
+		td, th {
+		  border: 1px solid;
+		  text-align: center;
+		  width: 8em;
+		  height: 2em;
+		  vertical-align: top;
+		}
+
+		th {
+		  background: #CCC;
+		}
 	</style>
 </head>
 <body>

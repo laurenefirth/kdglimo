@@ -22,19 +22,22 @@ class BookingsController extends Controller
     */
 	
 	/**
-     * Get all the bookings from the bookings table and show in the calendar view.
+     * Get all the remaining 2019 bookings from the bookings table and show in the calendar view.
      *
      * @return view
      */
 	public function calendarreport(){
  
-        $bookings = Booking::all();
+        $bookings = Booking::where('pickupDateTime','>=',date("Y-m-d"))
+			->where('pickupDateTime','<',date("2019-12-31"))
+			->orderBy('pickupDateTime')
+			->get();
  
         return view('bookings.calendarreport',compact('bookings'));
     }
 	
 	/**
-     * Get all the bookings from the bookings table and show in the list view.
+     * Get the next 7 days of bookings from the bookings table and show in the list view.
      *
      * @return view
      */

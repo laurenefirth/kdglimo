@@ -10,6 +10,20 @@ use App\User;
 
 class UserManagementController extends Controller
 {
+	/*
+    |--------------------------------------------------------------------------
+    | User Management Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the user creation for the admin user.
+    |
+    */
+	
+	/**
+     * Get all the users from the users table.
+     *
+     * @return view
+     */
 	public function userlist(){
 	
 		$users = User::all();
@@ -17,15 +31,32 @@ class UserManagementController extends Controller
         return view('usermanagement.userlist',compact('users'));
     }
 	
+	/**
+     * Redirect to the user creation view.
+     *
+     * @return view
+     */
 	public function create(){
         return view('usermanagement.create');
     }
 	
+	/**
+     * Redirect to the user update view.
+     *
+	 * @param $id unique id of user to be updated
+     * @return view
+     */
 	public function update($id){
 		$user = User::findOrFail($id);
         return view('usermanagement.update')->withUser($user);
     }
 	
+	/**
+     * Validate all the fields on the form, then submit the form if all fields are valid.
+     *
+	 * @param Request $request
+     * @return redirect
+     */
 	public function storeUser(Request $request){
 	
 		// Validate all fields - all fields required
@@ -42,7 +73,7 @@ class UserManagementController extends Controller
                         ->withInput();
         }
 	
-		// Create new Booking model, add required fields from form, and save to the database
+		// Create new User model, add required fields from form, hash password, and save to the database
 		$request->merge(['password' => Hash::make(request('password'))]);
         $user = User::create(request(['name', 'email', 'password']));
  
@@ -51,6 +82,12 @@ class UserManagementController extends Controller
  
     }
 	
+	/**
+     * Validate all the fields on the form, then submit the form if all fields are valid.
+     *
+	 * @param Request $request
+     * @return redirect
+     */
 	public function storeUserUpdate(Request $request){
 	
 		// Validate all fields - all fields required
@@ -68,6 +105,7 @@ class UserManagementController extends Controller
                         ->withInput();
         }
 		
+		// Find current User Model for this user, then update fields
 		$user = User::findOrFail(request('id'));
 		$user->email = request('email'); 
 		$user->name = request('name');
@@ -79,6 +117,12 @@ class UserManagementController extends Controller
  
     }
 	
+	/**
+     * Delete the specified user.
+     *
+	 * @param $id unique id of user to be deleted
+     * @return redirect
+     */
 	public function destroyUser($id){
 	
 		$user = User::findOrFail($id);
