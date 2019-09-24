@@ -22,15 +22,30 @@ class BookingsController extends Controller
     */
 	
 	/**
-     * Get all the bookings from the bookings table and show in the view.
+     * Get all the bookings from the bookings table and show in the calendar view.
      *
      * @return view
      */
-	public function index(){
+	public function calendarreport(){
  
         $bookings = Booking::all();
  
-        return view('bookings.index',compact('bookings'));
+        return view('bookings.calendarreport',compact('bookings'));
+    }
+	
+	/**
+     * Get all the bookings from the bookings table and show in the list view.
+     *
+     * @return view
+     */
+	public function listreport(){
+ 
+        $bookings = Booking::where('pickupDateTime','>=',date("Y-m-d"))
+			->where('pickupDateTime','<',date("Y-m-d", strtotime("+ 7 day")))
+			->orderBy('pickupDateTime')
+			->get();
+ 
+        return view('bookings.listreport',compact('bookings'));
     }
  
  	/**

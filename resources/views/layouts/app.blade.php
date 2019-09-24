@@ -123,10 +123,12 @@
 					@auth
 					<p class="label">Menu</p>
 					<ul>
-						<li><a href="{{ route('login') }}">{{ __('User Management') }}</a></li>
+						@if(Auth::user()->roles == 'Admin')
+							<li><a href="{{ url('/usermanagement') }}">{{ __('User Management') }}</a></li>
+						@endif
 						<li><a href="{{ url('/createbooking') }}">{{ __('Submit Bookings') }}</a></li>
-						<li><a href="{{ route('login') }}">{{ __('Calendar Report') }}</a></li>
-						<li><a href="{{ route('login') }}">{{ __('List Report') }}</a></li>
+						<li><a href="{{ url('/calendarreport') }}">{{ __('Calendar Report') }}</a></li>
+						<li><a href="{{ url('/listreport') }}">{{ __('List Report') }}</a></li>
 					</ul>
 					@endauth
 				</nav>
@@ -134,7 +136,7 @@
 			
 			<div class="main">
 				<main>
-					@yield('maincontent')
+					@yield('content')
 				</main>
 			</div>
                 

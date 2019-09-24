@@ -2,7 +2,7 @@
 
 @section('title', 'Login')
 
-@section('maincontent')
+@section('content')
 <div class="container">
     <div class="label">{{ __('Login') }}</div>
 

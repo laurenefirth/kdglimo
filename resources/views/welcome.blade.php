@@ -102,34 +102,7 @@
 						</div>
 					</div>
 				</div>
-				
-				<br/><br/>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-							<div class="panel panel-success">
-								<div class="panel-heading">List of Household Members</div>
-									@if(Auth::check())
-									  <!-- Table -->
-									  <table class="table">
-										  <tr>
-											  <th>Title</th>
-											  <th>Name</th>
-										  </tr>
-										  @foreach($household as $key => $value)
-											<tr>
-											  <td>{{ $key }}</td><td>{{ $value }}</td>
-											</tr>
-										  @endforeach
-									  </table>
-									@endif
-							</div>
-							@if(Auth::guest())
-							  <a href="/login" class="btn btn-info"> You need to login to see the list >></a>
-							@endif
-						</div>
-					</div>
-				</div>
+
             </div>
         </div>
     </body>

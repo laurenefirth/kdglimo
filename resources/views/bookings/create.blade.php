@@ -2,10 +2,10 @@
 
 @section('title', 'Submit Bookings')
 
-@section('maincontent')
+@section('content')
 <div class="container">
 
-	<p class="label">Submit Bookings</div>
+	<p class="label">Submit Bookings</p>
  
     <div class="maincontent form-body ">
 		@if(session()->has('message'))

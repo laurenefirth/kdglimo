@@ -2,9 +2,10 @@
 
 @section('title', 'My Account')
 
-@section('maincontent')
+@section('content')
 <div class="container">
-    <p class="label">My Account</div>
+
+    <p class="label">My Account</p>
 
     <div class="maincontent">
 		Welcome to your account on Lauren's Limos.
